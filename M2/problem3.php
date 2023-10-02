@@ -5,20 +5,22 @@ $a3 = [-0.01, -0.0001, -.15];
 $a4 = ["-1", "2", "-3", "4", "-5", "5", "-6", "6", "-7", "7"];
 
 function bePositive($arr) {
+    //UCID - st278
+    //DATE - 10/02/2023
+    $arrayLength = count($arr);
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
-    echo "<br>Positive output:<br>";
-    //note: use the $arr variable, don't directly touch $a1-$a4
-    //TODO use echo to output all of the values as positive (even if they were originally positive) and maintain the original datatype
-    //hint: may want to use var_dump() or similar to show final data types
-    foreach ($arr as $value){
-        if (is_numeric($value)){
-            $positiveValue = abs($value);
-            echo $positiveValue . " ";
-        }
-        else{
-            echo $value . " ";
-        }
-    }
+    echo "<br>Positive output: <br>";
+    for ($i = 0; $i < $arrayLength; $i++) {
+        if (is_string($arr[$i])){
+        $arr[$i] = abs($arr[$i]);
+        echo strval($arr[$i]), " ";
+        echo var_dump(strval($arr[$i])), "<br>";}
+    
+        else {
+            echo abs($arr[$i]), " ";
+            echo var_dump(abs($arr[$i])), "<br>"; }}
+    //TODO use echo to output all of the values as positive (even if they were originally positive) 
+    //hint: may want to use var_dump() to show final data types
 }
 echo "Problem 3: Be Positive<br>";
 ?>
