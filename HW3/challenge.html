@@ -7,19 +7,90 @@
     <script>
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
-            //TODO: add any extra onload processing you may need here
+            getCurrentSelection();
+            document.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+        const linkText = event.target.textContent;
+        updateCurrentPage(linkText);
+    }
+});            //TODO: add any extra onload processing you may need here
         });
         function getCurrentSelection() {
-            setTimeout(() => {
-                //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
-                //TODO: add code for processing the current selection 
+    setTimeout(() => {
+        // Add your code for processing the current selection here
+        // For example, you might want to get the selected text in a text area
 
-                //Note: likely you'll want to call updateCurrentPage towards the end
-            }, 100);
-        }
+        // Call updateCurrentPage function towards the end
+        updateCurrentPage();
+    }, 100);
+}
+
+// Define your updateCurrentPage function to handle the page update
+function updateCurrentPage(linkText) {
+    // Update the content of the <h1> tag with the link text
+    const h1Element = document.querySelector('h1');
+    if (h1Element) {
+        h1Element.textContent = linkText;
+    }
+
+    // Update the content of the <title> tag with the link text
+    document.title = linkText;
+}
+
     </script>
     <style>
         /* TODO: make edits here */
+            /* Make the navigation horizontal */
+nav ul {
+  display: flex;
+}
+
+/* Get rid of the navigation list item markers */
+nav ul li {
+  list-style-type: none;
+}
+
+/* Give the navigation a background */
+nav {
+  background-color: #eee;
+}
+
+/* Make the links (or their surrounding area) change color on mouseover */
+nav a:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+/* Change the "bullet points" of this entire list to checkmarks (✓) */
+ul li ::marker{
+
+  content: '✓';
+}
+
+/* Uppercase the first character of the content in the <h1> tag and the <a> tags */
+h1, a {
+  text-transform: uppercase;
+}
+
+/* Add some styling of your choice */
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+/* Any style applied to unordered list in the <nav> tag should not apply to this list */
+ul:not(.nav ul) {
+  list-style-type: disc;
+}
+
     </style>
     <!-- make the necessary edits above this line -->
 
