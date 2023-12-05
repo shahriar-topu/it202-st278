@@ -1,0 +1,137 @@
+/* Octine alert styles */
+.alert {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Success alert */
+.alert-success {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+/* Warning alert */
+.alert-warning {
+    background-color: #ffffff;
+    color: #fff;
+}
+
+/* Danger alert */
+.alert-danger {
+    background-color: #ffffff;
+    color: #fff;
+}
+
+/* Info alert */
+.alert-info {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Style navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #8e44ad;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Input styles */
+input,
+textarea,
+select {
+    border-radius: 5px;
+    border: 2px solid #3498db;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+/* Body styles */
+body {
+    background: url(https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-040.jpg) center/cover fixed no-repeat; /* Replace 'your-background-image.jpg' with your image file */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+
+
+/* Main content container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for better readability */
+    border-radius: 10px;
+}
+
+/* Footer styles */
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+    
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: fixed; /* Set position to fixed */
+    top: 0; /* Position at the top of the page */
+    width: 125%; /* Take up the full width of the viewport */
+    z-index: 1000; /* Set a high z-index to ensure it appears above other elements */
+}
+
+nav li {
+    display: inline;
+    text-align: center;
+    margin: 10px 10px; /* Adjust the margin to reduce space between buttons */
+}
+
+
+    nav a {
+        text-decoration: none;
+        color: #000000;
+        padding: 10px;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: rgb(9, 197, 91); /* Darker purple on hover */
+    }
