@@ -1,7 +1,6 @@
 <?php
 require(__DIR__ . "/partials/nav.php");
 ?>
-
 <form onsubmit="return validate(this)" method="POST">
     <div>
         <label for="email">Email</label>
@@ -15,8 +14,8 @@ require(__DIR__ . "/partials/nav.php");
 </form>
 <script>
     function validate(form) {
-        // TODO 1: implement JavaScript validation
-        // ensure it returns false for an error and true for success
+        //TODO 1: implement JavaScript validation
+        //ensure it returns false for an error and true for success
 
         return true;
     }
@@ -27,28 +26,28 @@ require(__DIR__ . "/partials/nav.php");
 if (isset($_POST["email"]) && isset($_POST["password"])) {
     $email = se($_POST, "email", "", false);
     $password = se($_POST, "password", "", false);
-    //session_start();
+   //session_start();
     
 
     //TODO 3
     $hasError = false;
     if (empty($email)) {
-        echo "<script>alert('Email must not be empty');</script>";
+        echo "Email must not be empty";
         $hasError = true;
     }
     //sanitize
     $email = sanitize_email($email);
     //validate
     if (!is_valid_email($email)) {
-        echo "<script>alert('Invalid email address');</script>";
+        echo "Invalid email address";
         $hasError = true;
     }
     if (empty($password)) {
-        echo "<script>alert('Password must not be empty');</script>";
+        echo "password must not be empty";
         $hasError = true;
     }
     if (strlen($password) < 8) {
-        echo "<script>alert('Password too short');</script>";
+        echo "Password too short";
         $hasError = true;
     }
     if (!$hasError) {
@@ -63,7 +62,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                     $hash = $user["password"];
                     unset($user["password"]);
                     if (password_verify($password, $hash)) {
-                        echo "<script>alert('Welcome $email');</script>";
+                        echo "Weclome $email";
                         $_SESSION["user"] = $user;
                         try {
                             //lookup potential roles
@@ -81,33 +80,32 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                         } else {
                             $_SESSION["user"]["roles"] = []; //no roles
                         }
-                        echo "<script>location.href='home.php';</script>";
+                        die(header("Location: home.php"));
                     } else {
-                        echo "<script>alert('Invalid password');</script>";
+                        echo "Invalid password";
                     }
                 } else {
-                    echo "<script>alert('Email not found');</script>";
+                    echo "Email not found";
                 }
             }
         } catch (Exception $e) {
-            echo "<script>alert('An error occurred');</script>";
+            echo "<pre>" . var_export($e, true) . "</pre>";
         }
     }
 }
 ?>
+
 <style>
     nav {
         background-color: #333333;
         padding: 10px;
         text-align: center;
-        display: flex;
-        justify-content: center;
     }
 
     nav a {
         color: black;
         text-decoration: none;
-        margin: 0 10px;
+        margin: 10px 10px;
         font-weight: bold;
     }
 
